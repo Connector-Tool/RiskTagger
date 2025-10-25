@@ -13,7 +13,7 @@ RiskTagger is an innovative LLM-based agent framework designed for automatic ann
 - 📊 **Auditor-friendly Reporting**: Generates comprehensive explanation documents
 - 🎯 **High Accuracy**: 100% extraction accuracy, 84.1% expert consistency
 
-## 🏗️ Architecture
+## 🏗️ Architecture and Core modules
 
 The system consists of three core modules:
 
@@ -34,26 +34,6 @@ The system consists of three core modules:
 - Transforms annotated results into structured datasets
 - Generates auditor-friendly natural language reports
 - Provides transparency and interpretability for compliance teams
-
-## 🙌 How to use
-
-### Prerequisites
-
-- Python 3.8+
-- Access to Qwen3-Max LLM API
-- BlockchainSpider for data crawling
-- Connector for cross-chain analysis
-
-### Installation
-
-```bash
-git clone https://github.com/Connector-Tool/RiskTagger.git
-cd RiskTagger
-pip install -r requirements.txt
-```
-
-### Core Functions and Usage
-
 
 
 ## 📁 Output Files
