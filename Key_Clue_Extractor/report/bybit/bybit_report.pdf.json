@@ -1,0 +1,55 @@
+{
+    "path": "bybit/bybit_report.pdf",
+    "project_info": {
+        "event_name": "Bybit Cold Wallet Hack",
+        "date": "2025-02-21",
+        "source_report_url": []
+    },
+    "findings": [
+        {
+            "id": 0,
+            "attack_vector": [
+                "Supply chain compromise via malicious JavaScript injection in Safe{Wallet} frontend",
+                "DELEGATECALL-based contract logic hijacking"
+            ],
+            "affected_platform": "Bybit (via compromised Safe{Wallet} infrastructure)",
+            "chain": [
+                "Ethereum"
+            ],
+            "contract_address": [
+                "0xbDd077f651EBe7f7b3cE16fe5F2b025BE2969516",
+                "0x96221423681A6d52E184D440a8eFCEbB105C7242"
+            ],
+            "attacker_addresses": [
+                "0x47666Fab8bd0Ac7003bce3f5C3585383F09486E2"
+            ],
+            "victim_addresses": [
+                "0x1Db92e2EeBC8E0c075a02BeA49a2935BcD2dFCF4"
+            ],
+            "stolen_amount_usd": 1500000000,
+            "stolen_amount_token": {
+                "ETH": 401000,
+                "mETH": 8000,
+                "cmETH": 15000,
+                "stETH": 90000
+            },
+            "laundering_methods": [
+                "Cross-DEX swaps (Uniswap, ParaSwap)",
+                "Cross-chain bridging via THORChain to BTC",
+                "Dispersion across thousands of wallets",
+                "Partial funneling through OKX Web3 and ExCH"
+            ],
+            "laundering_path": [
+                "0x1Db92e2EeBC8E0c075a02BeA49a2935BcD2dFCF4 → 0x47666Fab8bd0Ac7003bce3f5C3585383F09486E2 → 0xA4B2Fd68593B6F34E51cB9eDB66E71c1B4Ab449e → 0xdd90071d52f20e85c89802e5dc1ec0a7b6475f92 → 9–40 child addresses (e.g., 0xf302572594a68aa8f951fae64ed3ae7da41c72be, 0xe5ae3cfcf4c375e07ecdbadbc2c15d8cd9f7ea63) → THORChain → BTC wallets (6,954 wallets averaging 1.71 BTC each)"
+            ],
+            "evidence_snippets": [
+                "0x0fa09C3A328792253f8dee7116848723b72a6d2e identified as initial attacker address via transaction hash 0x46deef0f52e3a983b67abf4714448a41dd7ffd6d32d32da69d62081c68ad7882",
+                "Malicious JS file: app-52c9031bfa03da47.js hosted on app.safe.global",
+                "72% of funds laundered via THORChain to BTC",
+                "361,255 ETH (~$9B) converted to BTC and distributed across 6,954 wallets",
+                "Attacker’s gas funded from Binance exchange (traced backward from 0x0fa09C...)",
+                "mETH Protocol recovered 15,000 cmETH by freezing withdrawals"
+            ]
+        }
+    ]
+}
