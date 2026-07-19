@@ -1,0 +1,36 @@
+# 应用程序基本信息
+app:
+    name: Hacker-Extractor
+    version: 1.0.0
+    description: 自动化从 PDF 报告中提取 Web3 黑客攻击与洗钱事件分析数据
+
+# 当前运行案件配置
+runtime:
+    event_name: "Bybit"
+
+# 全局运行配置
+global:
+    verbose: True      # 是否开启调试模式（打印 LLM 的 prompt 和 response）
+    env_path: .env     # 环境变量文件路径，里面需要配置 API_KEY=你的密钥
+    interval: 3        # API 请求失败时的重试间隔（秒）
+    max_retries: 3     # 最大重试次数
+    timeout: 60        # 请求超时时间（秒）
+    log_level: INFO    # 日志输出级别：DEBUG, INFO, WARNING, ERROR
+    log_dir: ../output/logs      # 框架缓存及日志存放目录，相对 Extractor/config/
+    log_file: ../output/logs/extractor.log # 运行日志文件路径，相对 Extractor/config/
+
+# 大语言模型配置
+llm:
+    model: "qwen3-max" # 采用的模型名称，这里使用阿里云千问演示
+    base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1" # OpenAI 兼容格式的 API 地址
+    parameters:
+        context_window: -1     # 上下文窗口限制，-1为默认
+        temperature: 0.2       # 温度值：建议调低(0.1-0.3)以保证信息提取的确定性和准确性
+        streaming: True        # 是否启用流式输出
+
+# 文档提取器配置
+extractor:
+    mode: normal           # 提取模式（normal 或 strict）
+    max_heading_level: 4   # 按照 Markdown 标题层级进行文档切割，最大支持到 h4
+    valid_ext: [".txt", ".pdf", ".md"] # 支持的文件类型
+    chunk_length: 4096     # 大模型一次能够处理的最大 Token 长度（控制分块大小）

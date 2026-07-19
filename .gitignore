@@ -1,0 +1,64 @@
+# Python runtime artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local virtual environments
+.venv/
+venv/
+env/
+
+# Local secrets
+**/.env
+
+# Runtime logs and local service output
+*.log
+backend/server-*.out.log
+backend/server-*.err.log
+
+# Demo runtime uploads/jobs
+backend/jobs/
+backend/uploads/
+
+# Local editor settings
+.vscode/
+
+# Frontend excluded from paper repository
+frontend/
+
+# Large/intermediate experiment artifacts; keep curated samples separately if needed
+*/output/
+*/legacy/
+Extractor/input/reports/
+
+# Accidental local marker file
+C?UsersHP.claudeclaude-notify-signalsstop
+
+# Large reference datasets are distributed separately
+Tracer/input/reference_list/
+*.pkl
+
+
+# Ablation experiment variants are not included in this public code release
+Tracer/core/core/*without*.py
+
+
+# Backend web demo is not included in this code release
+backend/
+
+# Non-essential local project notes
+CLEANUP_LOG.md
+RESTRUCTURE_LOG.md
+MODULE_USAGE.md
+
+
+# Additional non-release files
+Tracer/core/core/reasoner.py
+Tracer/core/core/reasoner_langchain2.py
+C*UsersHP.claudeclaude-notify-signalsstop
+
+
+# Paper manuscript is not stored in this repository
+Risktagger.pdf
+*.pdf
+
